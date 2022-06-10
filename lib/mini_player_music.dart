@@ -69,6 +69,7 @@ class _MiniPlayerMusicState extends State<MiniPlayerMusic> {
   @override
   void initState() {
     super.initState();
+    context.read<Counter>().ContinueSong(widget.index);
     // context
     //     .read<Counter>()
     //     .audioPlayer
@@ -482,7 +483,7 @@ class _MiniPlayerMusicState extends State<MiniPlayerMusic> {
                                       onPressed: () {
                                         context.read<Counter>().RepeatSong();
                                       },
-                                      icon: Icon(Icons.loop),
+                                      icon: Icon(Icons.repeat_one),
                                       color: context.read<Counter>().isLoop
                                           ? Colors.blue
                                           : Colors.black),
@@ -491,13 +492,15 @@ class _MiniPlayerMusicState extends State<MiniPlayerMusic> {
                                   //     // context
                                   //     //     .read<Counter>()
                                   //     //     .setNumber(widget.index + 1);
-                                  //     context.read<Counter>().ContinueSong(
-                                  //         '${data[widget.index + 1]!["url"]}');
+                                  //
+                                  //     context
+                                  //         .read<Counter>()
+                                  //         .ContinueSong(widget.index);
                                   //
                                   //     // context.read<Counter>().ContinueSong(
                                   //     //     '${data[widget.index + 3]!["url"]}');
                                   //   },
-                                  //   icon: Icon(Icons.shuffle),
+                                  //   icon: Icon(Icons.repeat),
                                   //   color: context.read<Counter>().isNext
                                   //       ? Colors.blue
                                   //       : Colors.black,

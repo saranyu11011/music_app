@@ -95,7 +95,10 @@ class Counter with ChangeNotifier {
         } else if (_numbersong == data.length - 1) {
           //last song
           print("here");
-          audioPlayer.pause();
+          setNumber(_numbersong = 0);
+          audioPlayer.play('${data[_numbersong]!['url']}');
+
+          //audioPlayer.pause();
 
           //set first song
           //setNumber(_numbersong = 0);

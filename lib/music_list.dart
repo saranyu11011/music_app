@@ -90,7 +90,7 @@ class _PlayerState extends State<Player> {
 
   @override
   Widget build(BuildContext context) {
-    late double height = 110;
+    late double height = 150;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black54,
@@ -130,7 +130,7 @@ class _PlayerState extends State<Player> {
               Container(
                 color: Colors.black38,
                 width: 500,
-                height: 400,
+                height: 1500,
                 child: ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (context, index) {

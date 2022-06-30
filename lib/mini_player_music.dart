@@ -69,7 +69,7 @@ class _MiniPlayerMusicState extends State<MiniPlayerMusic> {
   @override
   void initState() {
     super.initState();
-    context.read<Counter>().ContinueSong(widget.index);
+    // context.read<Counter>().ContinueSong(widget.index);
     // context
     //     .read<Counter>()
     //     .audioPlayer
@@ -153,11 +153,20 @@ class _MiniPlayerMusicState extends State<MiniPlayerMusic> {
                                         icon: Icon(Icons.skip_previous),
                                         iconSize: 20,
                                         onPressed: () async {
-                                          context
-                                              .read<Counter>()
-                                              .setNumber(widget.index - 1);
-                                          context.read<Counter>().PlaySong(
-                                              '${data[widget.index - 1]!["url"]}');
+                                          if (widget.index == 0) {
+                                            context
+                                                .read<Counter>()
+                                                .setNumber(5);
+                                            context
+                                                .read<Counter>()
+                                                .PlaySong('${data[5]!["url"]}');
+                                          } else {
+                                            context
+                                                .read<Counter>()
+                                                .setNumber(widget.index - 1);
+                                            context.read<Counter>().PlaySong(
+                                                '${data[widget.index - 1]!["url"]}');
+                                          }
                                         },
                                       ),
                                     ),
@@ -223,8 +232,18 @@ class _MiniPlayerMusicState extends State<MiniPlayerMusic> {
                                           context
                                               .read<Counter>()
                                               .setNumber(widget.index + 1);
-                                          context.read<Counter>().PlaySong(
-                                              '${data[widget.index + 1]!["url"]}');
+                                          print('index is ${widget.index + 1}');
+                                          if (widget.index + 1 == 6) {
+                                            context
+                                                .read<Counter>()
+                                                .setNumber(0);
+                                            context
+                                                .read<Counter>()
+                                                .PlaySong('${data[0]!["url"]}');
+                                          } else {
+                                            context.read<Counter>().PlaySong(
+                                                '${data[widget.index + 1]!["url"]}');
+                                          }
                                         },
                                       ),
                                     ),
